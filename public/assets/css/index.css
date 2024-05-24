@@ -15,8 +15,8 @@ body {
     display: flex;
     flex-direction: column;
     background-color: rgb(10, 17, 27);
-    background-color: #00205B;
 }
+
 
 
 /* -------------------- HEADER -------------------- */
@@ -86,7 +86,6 @@ header ul:nth-of-type(2) a:hover {
     height: 90vh;
     display: flex;
     align-items: center;
-    justify-content: center;
 }
 
 #home::before {
@@ -101,26 +100,24 @@ header ul:nth-of-type(2) a:hover {
     clip-path: ellipse(60% 70% at 80% 30%);
 }
 
+/* ASIDE*/
 
-/* ASIDE - ESQUERDO */
-
-#home aside:nth-of-type(1) {
-    width: 40%;
+#home aside {
+    width: 50%;
     height: 100%;
-    padding: 0 50px;
+    padding: 0 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 30px;
-    /* align-items: center; */
+    gap: 40px;
 }
 
-#home aside:nth-of-type(1) h2 {
+#home aside h2 {
     font-size: 3rem;
     color: rgb(245, 245, 245);
 }
 
-#home aside:nth-of-type(1) button {
+#home aside button {
     width: 50%;
     padding: 10px 20px;
     border: none;
@@ -130,22 +127,30 @@ header ul:nth-of-type(2) a:hover {
     color: #00205B;
     background-color: white;
     transition: 0.2s ease-in-out;
+    cursor: pointer;
 }
 
-#home aside:nth-of-type(1) button:hover {
+#home aside p {
+    width: 450px;
+    text-align: justify;
+    font-size: 1.1rem;
+    color: rgb(211, 211, 211);
+}
+
+#home aside button:hover {
     transform: scale(1.10);
-    /* background-color: rgb(200, 197, 197); */
 }
 
 
-/* ASIDE - DIREITO */
+/* ARTICLE */
 
 #home article {
-    width: 60%;
+    width: 50%;
     height: 100%;
     padding: 0 50px;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 #home article img {
@@ -184,11 +189,6 @@ header ul:nth-of-type(2) a:hover {
     /* background-color: aliceblue; */
 }
 
-#sobre article div {
-    border-radius: 10%;
-    background-color: rgb(255, 255, 255);
-}
-
 #sobre article img {
     width: 100%;
     max-width: 500px;
@@ -196,27 +196,40 @@ header ul:nth-of-type(2) a:hover {
 
 #sobre aside {
     width: 50%;
-    height: 100%;
     padding: 0 50px;
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-    align-items: center;
     justify-content: top;
     border-bottom: 2px solid rgb(51, 107, 176);
     /* background-color: gray; */
 }
 
 #sobre aside h1 {
-    margin-top: 100px;
-    font-size: 2rem;
+    margin: 100px 0 20px;
+    font-size: 3rem;
     color: white;
 }
 
+#sobre aside h1 span {
+    color: #043eaa;
+}
+
+#sobre aside p span {
+    color: #3a76e6;
+}
+
 #sobre aside p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    text-align: justify;
+    line-height: 40px;
     color: rgba(255, 255, 255, 0.788);
 }
+
+/* Azul PlayStation: #003087 (Para representar a PlayStation)
+Verde Xbox: #107C10 (Para representar a Xbox)
+Vermelho Nintendo: #E60012 (Para representar a Nintendo)
+Branco: #FFFFFF (Para fundos e textos principais)
+Cinza Claro: #D3D3D3 (Para fundos, bordas ou seções de destaque)
+Cinza Escuro: #333333 (Para textos ou detalhes mais escuros)
+Amarelo: #FFCC00 (Para destaques ou detalhes menores) */
 
 /* -------------------- FIM SOBRE -------------------- */
 
