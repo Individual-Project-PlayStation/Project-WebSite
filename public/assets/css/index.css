@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins';
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(10, 17, 27);
+    background-color: #00205B;
+}
+
+
+/* -------------------- HEADER -------------------- */
+
+header {
+    width: 100%;
+    padding: 5px 20px;
+    display: flex;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+header article img {
+    width: 100%;
+    max-width: 50px;
+}
+
+header nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+header ul:nth-of-type(1) {
+    gap: 50px;
+}
+
+header ul:nth-of-type(2) {
+    font-size: 30px;
+}
+
+header ul a {
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    transition: transform 0.3s ease, border-bottom 0.3s ease;
+    border-bottom: 2px solid transparent;
+}
+
+header ul:nth-of-type(1) a:hover {
+    transform: scale(1.2);
+    border-bottom: 2px solid white;
+}
+
+header ul:nth-of-type(2) a:hover {
+    transform: scale(1.2);
+}
+
+/* -------------------- FIM HEADER -------------------- */
+
+/* -------------------- HOME -------------------- */
+
+#home {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    width: 60%;
+    height: 100%;
+    background: #021943;
+    clip-path: ellipse(60% 70% at 80% 30%);
+}
+
+#home aside:nth-of-type(1) {
+    width: 40%;
+    height: 100%;
+    padding: 0 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#home aside:nth-of-type(1) h1 {
+    font-size: 4rem;
+    color: rgb(245, 245, 245);
+}
+
+#home aside:nth-of-type(1) h2 {
+    font-size: 2rem;
+    color: rgb(245, 245, 245);
+}
+
+#home aside:nth-of-type(2) {
+    width: 60%;
+    height: 100%;
+    /* padding: 0 50px; */
+    display: flex;
+    align-items: center;
+    /* justify-content: right; */
+    /* left: calc(50% - 300px); */
+    display: flex;
+}
+
+/* -------------------- FIM HOME -------------------- */
+
+/* -------------------- SOBRE -------------------- */
+
+#sobre {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+}
+
+#sobre article {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: aliceblue; */
+}
+
+#sobre article div {
+    border-radius: 10%;
+    background-color: rgb(255, 255, 255);
+}
+
+#sobre article img {
+    width: 100%;
+    max-width: 500px;
+}
+
+#sobre aside {
+    width: 50%;
+    height: 100%;
+    padding: 0 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+    justify-content: top;
+    /* background-color: gray; */
+}
+
+#sobre aside h1 {
+    margin-top: 100px;
+    font-size: 2rem;
+    color: white;
+}
+
+#sobre aside p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.788);
+}
+
+/* -------------------- FIM SOBRE -------------------- */
+
+
+/* -------------------- CONSOLES -------------------- */
+
+#consoles {
+    width: 100%;
+    height: 100vh;
+    background-color: #153166;
+}
+
+/* -------------------- FIM CONSOLES -------------------- */
+
+/* -------------------- GAMES -------------------- */
+
+#games {
+    width: 100%;
+    height: 100vh;
+    background-color: #1c3564;
+}
+
+/* -------------------- FIM GAMES -------------------- */
+
+/* -------------------- ONU -------------------- */
+
+#onu {
+    width: 100%;
+    height: 100vh;
+    background-color: #2e4571;
+}
+
+/* -------------------- FIM ONU -------------------- */
+
+/* -------------------- FOOTER -------------------- */
+
+/* -------------------- FIM FOOTER -------------------- */
