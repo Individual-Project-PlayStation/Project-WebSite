@@ -1,0 +1,455 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins';
+    display: flex;
+    flex-direction: column;
+    /* background-color: rgb(10, 17, 27); */
+
+    background: linear-gradient(to right, rgb(10, 17, 27), rgb(22, 38, 59), rgb(26, 48, 77), rgb(22, 38, 59), rgb(10, 17, 27));
+}
+
+
+
+/* -------------------- HEADER -------------------- */
+
+header {
+    width: 100%;
+    padding: 5px 20px;
+    display: flex;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+header article img {
+    width: 100%;
+    max-width: 50px;
+}
+
+header nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+header ul:nth-of-type(1) {
+    gap: 50px;
+}
+
+header ul:nth-of-type(2) {
+    font-size: 30px;
+}
+
+header ul a {
+    /* font-size: 1rem; */
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    transition: transform 0.3s ease, border-bottom 0.3s ease;
+    border-bottom: 2px solid transparent;
+}
+
+header ul select {
+    padding: 10px;
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    transition: transform 0.3s ease, border-bottom 0.3s ease;
+    border: none;
+    border-bottom: 2px solid transparent;
+    outline: none;
+}
+
+header ul select option {
+    padding: 10px;
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    transition: transform 0.3s ease, border-bottom 0.3s ease;
+    border: none;
+    border-bottom: 2px solid transparent;
+    outline: none;
+}
+
+header ul:nth-of-type(1) a:hover {
+    transform: scale(1.2);
+    border-bottom: 2px solid white;
+}
+
+header ul:nth-of-type(2) a:hover {
+    transform: scale(1.2);
+}
+
+/* -------------------- FIM HEADER -------------------- */
+
+/* -------------------- HOME -------------------- */
+
+#home {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+}
+
+#home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    width: 60%;
+    height: 100%;
+    /* background: #021943; */
+    background-color: #487cdd0f;
+    clip-path: ellipse(60% 70% at 80% 30%);
+}
+
+/* ASIDE*/
+
+#home aside {
+    width: 50%;
+    height: 100%;
+    padding: 0 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+}
+
+#home aside h2 {
+    font-size: 3rem;
+    color: rgb(245, 245, 245);
+}
+
+#home aside button {
+    width: 50%;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #00205B;
+    background-color: white;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+#home aside p {
+    width: 450px;
+    text-align: justify;
+    font-size: 1.1rem;
+    color: rgb(211, 211, 211);
+}
+
+#home aside button:hover {
+    transform: scale(1.10);
+}
+
+
+/* ARTICLE */
+
+#home article {
+    width: 50%;
+    height: 100%;
+    padding: 0 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#home article img {
+    width: 100%;
+    max-width: 400px;
+}
+
+/* -------------------- FIM HOME -------------------- */
+
+
+/* -------------------- SOBRE -------------------- */
+
+#sobre {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+}
+
+#sobre::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 60%;
+    height: 100%;
+    /* background: #021943; */
+    /* background-color: #072864; */
+    /* background-color: #07286448; */
+    /* background-color: #487cdd0f; */
+    clip-path: ellipse(60% 70% at 20% 30%);
+}
+
+#sobre article {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 2px solid rgb(51, 107, 176);
+}
+
+#sobre article img {
+    width: 100%;
+    max-width: 500px;
+    animation: flip 20s linear infinite;
+}
+
+@keyframes flip {
+    0% {
+        transform: scaleX(1); /* Não espelhado */
+    }
+    50% {
+        transform: scaleX(-1); /* Espelhado */
+    }
+    100% {
+        transform: scaleX(1); /* Não espelhado novamente */
+    }
+}
+
+#sobre aside {
+    width: 50%;
+    padding: 0 50px;
+    /* border-bottom: 2px solid rgb(51, 107, 176); */
+}
+
+#sobre aside h1 {
+    margin: 100px 0 30px;
+    font-size: 3rem;
+    color: white;
+}
+
+#sobre aside h1 span {
+    color: #043eaa;
+}
+
+#sobre aside p {
+    font-size: 1.1rem;
+    text-align: justify;
+    line-height: 40px;
+    color: rgba(255, 255, 255, 0.788);
+}
+
+#sobre aside p span {
+    color: #3a76e6;
+}
+
+/* -------------------- FIM SOBRE -------------------- */
+
+
+/* -------------------- CONSOLES -------------------- */
+
+#consoles {
+    width: 100%;
+    height: auto;
+    /* background-color: rgb(214, 105, 105); */
+    /* display: flex;
+    align-items: center; */
+    /* background-color: black; */
+}
+
+#consoles aside {
+    width: 50%;
+    height: 100%;
+    padding: 0 50px;
+    /* background-color: #00205B; */
+}
+
+#consoles aside h1 {
+    margin: 100px 0 50px ;
+    font-size: 3rem;
+    color: white;
+}
+
+#consoles aside h1 span {
+    color: #043eaa;
+}
+
+#consoles aside p {
+    font-size: 1.1rem;
+    text-align: justify;
+    line-height: 40px;
+    color: rgba(255, 255, 255, 0.788);
+}
+
+#consoles aside p span {
+    color: #3a76e6;
+}
+
+#consoles article {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ---------- PS1 ---------- */
+
+#ps1 {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+#ps1 article {
+    border-top: 2px solid rgb(51, 107, 176);
+}
+
+#ps1 article img {
+    width: 100%;
+    max-width: 500px;
+}
+
+/* ---------- PS2 ---------- */
+
+#ps2 {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+#ps2 article {
+    border-top: 2px solid rgb(51, 107, 176);
+}
+
+#ps2 article img {
+    width: 100%;
+    max-width: 300px;
+}
+
+/* ---------- PSP ---------- */
+
+#psp {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+#psp article {
+    border-top: 2px solid rgb(51, 107, 176);
+}
+
+#psp article img {
+    width: 100%;
+    max-width: 500px;
+}
+
+/* ---------- PSP ---------- */
+
+#ps3 {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+#ps3 article {
+    border-top: 2px solid rgb(51, 107, 176);
+}
+
+#ps3 article img {
+    width: 100%;
+    max-width: 500px;
+}
+
+/* ---------- PS4 ---------- */
+
+#ps4 {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+#ps4 article {
+    border-top: 2px solid rgb(51, 107, 176);
+}
+
+#ps4 article img {
+    width: 100%;
+    max-width: 500px;
+}
+
+/* ---------- PS5 ---------- */
+
+#ps5 {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+#ps5 article {
+    border-top: 2px solid rgb(51, 107, 176);
+}
+
+#ps5 article img {
+    width: 100%;
+    max-width: 400px;
+}
+
+/* -------------------- FIM CONSOLES -------------------- */
+
+/* -------------------- GAMES -------------------- */
+
+#games {
+    width: 100%;
+    height: 100vh;
+    /* background-color: #1c3564; */
+}
+
+/* -------------------- FIM GAMES -------------------- */
+
+/* -------------------- ONU -------------------- */
+
+#onu {
+    width: 100%;
+    height: 100vh;
+    background-color: #2e4571;
+}
+
+/* -------------------- FIM ONU -------------------- */
+
+/* -------------------- FOOTER -------------------- */
+
+#footer {
+    text-decoration: none;
+}
+
+/* -------------------- FIM FOOTER -------------------- */
