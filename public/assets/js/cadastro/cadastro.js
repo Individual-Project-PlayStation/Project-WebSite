@@ -30,7 +30,7 @@ function cadastrar() {
     fetch("/usuario/cadastrar", {
         method: "POST",
         headers: {
-            "Content-Type": "application.json",
+            "Content-Type": "application/json",
         },
         body: JSON.stringify({
             nomeServer: nomeVar,
@@ -46,7 +46,7 @@ function cadastrar() {
                 console.log("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
 
                 setTimeout(() => {
-                    window.location = "login.html";
+                    // window.location = "login.html";
                 }, "2000");
             } else {
                 throw "Houve um erro ao tentar realizar o cadastro!";

@@ -448,7 +448,10 @@ header ul:nth-of-type(2) a:hover {
 
 /* -------------------- FOOTER -------------------- */
 
-#footer {
+footer {
+    width: 100%;
+    height: 20vh;
+    background-color: #00205B;
     text-decoration: none;
 }
 
