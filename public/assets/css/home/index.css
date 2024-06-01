@@ -431,7 +431,16 @@ header ul:nth-of-type(2) a:hover {
 #games {
     width: 100%;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     /* background-color: #1c3564; */
+}
+
+#games > h1 {
+    margin: 50px 0 20px;
+    font-size: 3rem;
+    color: white;
 }
 
 /* -------------------- FIM GAMES -------------------- */

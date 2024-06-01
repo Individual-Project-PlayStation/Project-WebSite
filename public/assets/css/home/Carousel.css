@@ -1,0 +1,319 @@
+.container-cards {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.card {
+    width: 300px;
+    height: 250px;
+    border: 2px solid white;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: rgb(176, 47, 47);
+}
+
+.card h1 {
+    margin-left: 15px;
+    color: white;
+    position: absolute;
+    z-index: 1000;
+}
+
+.slides {
+    width: 400%;
+    height: 100%;
+    display: flex;
+}
+
+.slides input {
+    display: none;
+}
+
+.slide {
+    width: 25%;
+    height: 100%;
+    position: relative;
+    transition: 1s;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    opacity: 0.9;
+}
+
+.manual-navigation {
+    position: relative;
+    width: 300px;
+    height: auto;
+    margin-top: -24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    /* background-color: black; */
+}
+
+.manual-btn {
+    border: 2px solid white;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.manual-btn:hover {
+    transition: 0.3s;
+    background-color: white;
+}
+
+#radio1:checked ~ .first {
+    margin-left: 0;
+}
+
+#radio2:checked ~ .first {
+    margin-left: -25%;
+}
+
+#radio3:checked ~ .first {
+    margin-left: -50%;
+}
+
+#radio4:checked ~ .first {
+    margin-left: -75%;
+}
+
+
+#radio5:checked ~ .second {
+    margin-left: 0;
+}
+
+#radio6:checked ~ .second {
+    margin-left: -25%;
+}
+
+#radio7:checked ~ .second {
+    margin-left: -50%;
+}
+
+#radio8:checked ~ .second {
+    margin-left: -75%;
+}
+
+
+#radio9:checked ~ .third {
+    margin-left: 0;
+}
+
+#radio10:checked ~ .third {
+    margin-left: -25%;
+}
+
+#radio11:checked ~ .third {
+    margin-left: -50%;
+}
+
+#radio12:checked ~ .third {
+    margin-left: -75%;
+}
+
+
+#radio13:checked ~ .fourth {
+    margin-left: 0;
+}
+
+#radio14:checked ~ .fourth {
+    margin-left: -25%;
+}
+
+#radio15:checked ~ .fourth {
+    margin-left: -50%;
+}
+
+#radio16:checked ~ .fourth {
+    margin-left: -75%;
+}
+
+
+#radio17:checked ~ .fifth {
+    margin-left: 0;
+}
+
+#radio18:checked ~ .fifth {
+    margin-left: -25%;
+}
+
+#radio19:checked ~ .fifth {
+    margin-left: -50%;
+}
+
+#radio20:checked ~ .fifth {
+    margin-left: -75%;
+}
+
+
+#radio21:checked ~ .sixth {
+    margin-left: 0;
+}
+
+#radio22:checked ~ .sixth {
+    margin-left: -25%;
+}
+
+#radio23:checked ~ .sixth {
+    margin-left: -50%;
+}
+
+#radio24:checked ~ .sixth {
+    margin-left: -75%;
+}
+
+
+#radio25:checked ~ .Seventh {
+    margin-left: 0;
+}
+
+#radio26:checked ~ .Seventh {
+    margin-left: -25%;
+}
+
+#radio27:checked ~ .Seventh {
+    margin-left: -50%;
+}
+
+#radio28:checked ~ .Seventh {
+    margin-left: -75%;
+}
+
+.navigation-auto {
+    position: absolute;
+    width: 300px;
+    margin-top: 223px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.navigation-auto div{
+    border: 2px solid white;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#radio1:checked ~ .navigation-auto .auto-btn1 {
+    background-color: white;
+}
+
+#radio2:checked ~ .navigation-auto .auto-btn2 {
+    background-color: white;
+}
+
+#radio3:checked ~ .navigation-auto .auto-btn3 {
+    background-color: white;
+}
+
+#radio4:checked ~ .navigation-auto .auto-btn4 {
+    background-color: white;
+}
+
+#radio5:checked ~ .navigation-auto .auto-btn5 {
+    background-color: white;
+}
+
+#radio6:checked ~ .navigation-auto .auto-btn6 {
+    background-color: white;
+}
+
+#radio7:checked ~ .navigation-auto .auto-btn7 {
+    background-color: white;
+}
+
+#radio8:checked ~ .navigation-auto .auto-btn8 {
+    background-color: white;
+}
+
+#radio9:checked ~ .navigation-auto .auto-btn9 {
+    background-color: white;
+}
+
+#radio10:checked ~ .navigation-auto .auto-btn10 {
+    background-color: white;
+}
+
+#radio11:checked ~ .navigation-auto .auto-btn11 {
+    background-color: white;
+}
+
+#radio12:checked ~ .navigation-auto .auto-btn12 {
+    background-color: white;
+}
+
+#radio13:checked ~ .navigation-auto .auto-btn13 {
+    background-color: white;
+}
+
+#radio14:checked ~ .navigation-auto .auto-btn14 {
+    background-color: white;
+}
+
+#radio15:checked ~ .navigation-auto .auto-btn15 {
+    background-color: white;
+}
+
+#radio16:checked ~ .navigation-auto .auto-btn16 {
+    background-color: white;
+}
+
+#radio17:checked ~ .navigation-auto .auto-btn17 {
+    background-color: white;
+}
+
+#radio18:checked ~ .navigation-auto .auto-btn18 {
+    background-color: white;
+}
+
+#radio19:checked ~ .navigation-auto .auto-btn19 {
+    background-color: white;
+}
+
+#radio20:checked ~ .navigation-auto .auto-btn20 {
+    background-color: white;
+}
+
+#radio21:checked ~ .navigation-auto .auto-btn21 {
+    background-color: white;
+}
+
+#radio22:checked ~ .navigation-auto .auto-btn22 {
+    background-color: white;
+}
+
+#radio23:checked ~ .navigation-auto .auto-btn23 {
+    background-color: white;
+}
+
+#radio24:checked ~ .navigation-auto .auto-btn24 {
+    background-color: white;
+}
+
+#radio25:checked ~ .navigation-auto .auto-btn25 {
+    background-color: white;
+}
+
+#radio26:checked ~ .navigation-auto .auto-btn26 {
+    background-color: white;
+}
+
+#radio27:checked ~ .navigation-auto .auto-btn27 {
+    background-color: white;
+}
+
+#radio28:checked ~ .navigation-auto .auto-btn28 {
+    background-color: white;
+}
