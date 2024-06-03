@@ -266,118 +266,97 @@ document.addEventListener("DOMContentLoaded", () => {
     ranking();
 
 
-
     var questions = [
         {
-            question: "Em que ano Bob Marley nasceu?",
+            question: "Em que ano foi lançado o primeiro PlayStation?",
             answer: [
-                { text: "1945", correct: true },
-                { text: "1947", correct: false },
-                { text: "1949", correct: false },
-                { text: "1960", correct: false },
+                { text: "1994", correct: true },
+                { text: "1995", correct: false },
+                { text: "1996", correct: false },
+                { text: "1997", correct: false },
             ],
         },
         {
-            question: "Qual é o nome completo de Bob Marley?",
+            question: "Qual foi o primeiro console portátil da Sony?",
             answer: [
-                { text: "Robert Nesta Marley", correct: true },
-                { text: "Robert Nigel Marley", correct: false },
-                { text: "Robert Nelson Marley", correct: false },
-                { text: "Robert Nathan Marley", correct: false },
+                { text: "PlayStation Portable (PSP)", correct: true },
+                { text: "PSP Go", correct: false },
+                { text: "PlayStation Vita", correct: false },
+                { text: "PlayStation 3", correct: false },
             ],
         },
         {
-            question: "Qual era o nome da banda de Bob Marley?",
+            question: "Quantas unidades o PlayStation 2 vendeu no mundo?",
             answer: [
-                { text: "The Revolutionaries", correct: false },
-                { text: "The Wailers", correct: true },
-                { text: "The Skatalites", correct: false },
-                { text: "The Heptones", correct: false },
+                { text: "155 milhões", correct: true },
+                { text: "100 milhões", correct: false },
+                { text: "200 milhões", correct: false },
+                { text: "120 milhões", correct: false },
             ],
         },
         {
-            question: "Em que país Bob Marley nasceu?",
+            question: "Qual a principal inovação do controle DualShock 2?",
             answer: [
-                { text: "Jamaica", correct: true },
-                { text: "Estados Unidos", correct: false },
-                { text: "Trinidad e Tobago", correct: false },
-                { text: "Barbados", correct: false },
+                { text: "Botões analógicos que detectam o nível de pressão", correct: true },
+                { text: "Barra luminosa", correct: false },
+                { text: "Touch pad", correct: false },
+                { text: "Microfone integrado", correct: false },
             ],
         },
         {
-            question: "Qual foi o primeiro álbum de Bob Marley e os Wailers lançado internacionalmente?",
+            question: "Em que ano o PlayStation 3 foi lançado nos EUA?",
             answer: [
-                { text: "Catch a Fire", correct: true },
-                { text: "Burnin'", correct: false },
-                { text: "Natty Dread", correct: false },
-                { text: "Rastaman Vibration", correct: false },
+                { text: "2006", correct: true },
+                { text: "2005", correct: false },
+                { text: "2007", correct: false },
+                { text: "2008", correct: false },
             ],
         },
         {
-            question: "Qual música de Bob Marley contém a famosa linha 'One good thing about music, when it hits you, you feel no pain'?",
+            question: "Qual serviço de jogos em nuvem foi lançado em 2014?",
             answer: [
-                { text: "No Woman, No Cry", correct: false },
-                { text: "Trenchtown Rock", correct: true },
-                { text: "Redemption Song", correct: false },
-                { text: "Jamming", correct: false },
+                { text: "PlayStation Now", correct: true },
+                { text: "PlayStation Plus", correct: false },
+                { text: "PlayStation Network", correct: false },
+                { text: "PlayStation Store", correct: false },
             ],
         },
         {
-            question: "Qual foi o último álbum de estúdio lançado por Bob Marley antes de sua morte?",
+            question: "O que o controle DualSense do PS5 oferece?",
             answer: [
-                { text: "Uprising", correct: true },
-                { text: "Survival", correct: false },
-                { text: "Confrontation", correct: false },
-                { text: "Exodus", correct: false },
+                { text: "Feedback tátil imersivo e gatilhos dinâmicos", correct: true },
+                { text: "Touch pad e barra luminosa", correct: false },
+                { text: "Botões analógicos e sensor de movimento", correct: false },
+                { text: "Alto-falante embutido e microfone integrado", correct: false },
             ],
         },
         {
-            question: "Em que ano Bob Marley faleceu?",
+            question: "Qual foi o recurso de mídia adicionado ao PS2?",
             answer: [
-                { text: "1978", correct: false },
-                { text: "1980", correct: false },
-                { text: "1981", correct: true },
-                { text: " 1983", correct: false },
+                { text: "Driver de DVD integrado", correct: true },
+                { text: "Blu-ray", correct: false },
+                { text: "CD-ROM", correct: false },
+                { text: "PlayStation VR", correct: false },
             ],
         },
         {
-            question: "Bob Marley foi um seguidor de qual religião?",
+            question: "Quantos jogos foram lançados para o PlayStation 2?",
             answer: [
-                { text: "Hinduísmo", correct: false },
-                { text: " Islamismo", correct: false },
-                { text: "Rastafarianismo", correct: true },
-                { text: "Budismo", correct: false },
+                { text: "Quase 4 mil", correct: true },
+                { text: "Quase 2 mil", correct: false },
+                { text: "Quase 3 mil", correct: false },
+                { text: "Quase 5 mil", correct: false },
             ],
         },
         {
-            question: "Qual destas músicas NÃO é uma canção de Bob Marley?",
+            question: "Qual a resolução máxima suportada pelo PlayStation 5?",
             answer: [
-                { text: "Three Little Birds", correct: false },
-                { text: "Buffalo Soldier", correct: false },
-                { text: "I Shot the Sheriff", correct: false },
-                { text: "The Harder They Come", correct: true },
+                { text: "8K", correct: true },
+                { text: "4K", correct: false },
+                { text: "1080p", correct: false },
+                { text: "720p", correct: false },
             ],
         },
     ];
-
-    // var questions = [
-    //     {
-    //         question: "Em que ano a PlayStation foi fundada?",
-    //         answer: [
-    //             { text: "1999", correct: false },
-    //             { text: "2000", correct: false },
-    //             { text: "1994", correct: true },
-    //             { text: "2005", correct: false }
-    //         ]
-    //     },
-    //     {
-    //         question: "Qual foi o primeiro console PlayStation?",
-    //         answer: [
-    //             { text: "PlayStation 1", correct: true },
-    //             { text: "PlayStation 2", correct: false },
-    //             { text: "PlayStation 3", correct: false },
-    //             { text: "PlayStation 4", correct: false }
-    //         ]
-    //     }
-    // ];
+    
 });

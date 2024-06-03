@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (sairDaConta) {
         sairDaConta.addEventListener("click", function () {
+            window.location = "../view/login.html";
             limparSessao();
         });
     } 
