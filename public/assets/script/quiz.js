@@ -67,17 +67,21 @@ document.addEventListener("DOMContentLoaded", () => {
         var totalQuestion = questions.length;
         var totalIncorrect = totalQuestion - totalCorrect;
         var idUsuario = sessionStorage.ID_USUARIO;
-    
+
         console.log(idUsuario, totalIncorrect, totalCorrect);
-    
-        perguntaContainer.innerHTML = `<p class="mensagem_final">Quer ver o resultado? Clique aqui!</p> 
-        <a href="dashboard.html" class="dash">Dashboards</a>`;
-    
+
+        perguntaContainer.innerHTML = `
+            <h2 class= "tituloResposta">Esse foi o seu desempenho<p>Recarregue a página para jogar novamente!</p></h2>
+            <div class="divCanvas" >
+                <canvas id="myChartDesempenho"></canvas>
+            </div>
+        `;
+
         nextButton.classList.add("hide");
-    
+
         nextButton.removeEventListener("click", displayProximaPergunta);
-        
-    
+
+
         fetch("/usuario/finishGame", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -87,35 +91,177 @@ document.addEventListener("DOMContentLoaded", () => {
                 totalIncorrect: totalIncorrect
             })
         })
-        .then(function (resposta) {
-            console.log("ESTOU NO THEN DO quiz()!");
-    
-            if (resposta.ok) {
-                console.log(resposta);
-    
-                resposta.json().then(json => {
-                    sessionStorage.idUsuario = json.idUsuario;
-                    sessionStorage.idQuiz = json.idQuiz;
-                    sessionStorage.Acertos = json.totalCorrect;
-                    sessionStorage.Erros = json.totalIncorrect;
-                });
-            } else {
-                console.log("Houve um erro ao terminar o quiz!");
-    
-                resposta.text().then(texto => {
-                    console.error(texto);
-                });
-            }
-        })
-        .catch(function (erro) {
-            console.log(erro);
-        });
-    
+            .then(function (resposta) {
+                console.log("ESTOU NO THEN DO quiz()!");
+
+                if (resposta.ok) {
+                    console.log(resposta);
+                    resposta.json().then(json => {
+                        sessionStorage.idUsuario = json.idUsuario;
+                        sessionStorage.idQuiz = json.idQuiz;
+                        sessionStorage.Acertos = json.totalCorrect;
+                        sessionStorage.Erros = json.totalIncorrect;
+                    });
+                    obterDadosGrafico();
+                } else {
+                    console.log("Houve um erro ao terminar o quiz!");
+
+                    resposta.text().then(texto => {
+                        console.error(texto);
+                    });
+                }
+            })
+            .catch(function (erro) {
+                console.log(erro);
+            });
+
         return false;
     }
 
+    var id = sessionStorage.ID_USUARIO;
 
 
+    function obterDadosGrafico() {
+
+        fetch("/usuario/quizResultado", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                idServer: id
+            })
+        }).then(function (resposta) {
+
+            console.log("quizResultado caiu aqui")
+
+            if (resposta.ok) {
+                // console.log("resposta quizGrafico" + resposta);
+
+                resposta.json().then(json => {
+
+                    // console.log(json);
+
+                    // var obj = JSON.stringify(json);
+
+                    sessionStorage.id = json.id;
+
+                    // console.log("kauan mexeu aqui " + obj);
+
+                    plotarGrafico_1(json);
+
+                });
+
+
+
+            } else {
+                console.log("Houve um erro ao terminar o quiz!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+
+                });
+
+            }
+        }
+
+        ).catch(function (erro) {
+            console.log(erro);
+        })
+    };
+
+    function plotarGrafico_1(dados) {
+        console.log("Dados recebidos no plotar: ", JSON.stringify(dados));
+        console.log('Iniciando plotagem do gráfico...');
+
+
+        let labels = [''];
+        let acertos = dados.map(item => item.acertos);
+        let erros = dados.map(item => item.erros);
+
+        let chartData = {
+            labels: labels,
+            datasets: [{
+                label: 'Acertos',
+                data: [acertos],
+                // borderColor: '#B0CDDA',
+                backgroundColor: 'rgba(51, 107, 176, 0.678',
+                // borderWidth: 2
+            },
+            {
+                label: 'Erros',
+                data: [erros],
+                // borderColor: '#EE675C',
+                backgroundColor: '#EE675C',
+                // borderWidth: 2
+            },]
+        };
+
+        console.log('----------------------------------------------');
+        console.log('Estes dados foram recebidos pela função "obterDadosGrafico" e passados para "plotarGrafico":');
+        console.log(dados);
+
+        console.log('----------------------------------------------');
+        console.log('O gráfico será plotado com os respectivos valores:');
+        console.log('Labels:');
+        console.log(labels);
+        console.log('Dados:');
+        console.log(acertos, erros);
+        console.log('----------------------------------------------');
+
+        const config = {
+            type: 'bar',
+            data: chartData,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 1
+                        }
+                    }
+                }
+            }
+        };
+
+        // Adicionando gráfico criado em div na tela
+        let myChart = new Chart(
+            document.getElementById('myChartDesempenho'),
+            config
+        );
+    }
+
+    function ranking() {
+
+        const cardContent = document.querySelector("table")
+    
+        fetch("/usuario/ranking")
+
+        
+    
+            .then(response => response.json())
+            
+            .then(data => {
+                console.log("miguel aqui");
+    
+                data.forEach(element => {
+    
+                    const table = document.createElement('tr')
+    
+                    table.innerHTML = `
+                    <td>${element.nome}</td>
+                    <td>${element.erros}</td>
+                    <td>${element.acertos}</td>
+                    `
+                    cardContent.append(table)
+    
+                })
+    
+            }).catch(error => console.error(error))
+    
+    }
+
+    ranking();
 
     var questions = [
         {

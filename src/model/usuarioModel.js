@@ -52,19 +52,59 @@ function finishGame(idUsuario, idQuiz, acertos, erros) {
 
 // RESULTADO DO QUIZ
 
+
+
 function quizResultado(idUsuario) {
     var instrucaoSql = `
-        SELECT SUM(acertos) AS 'Acertos', SUM(erros) AS 'Erros' FROM tbMetrica WHERE fkUsuario = ${idUsuario};
+        SELECT acertos, erros FROM tbMetrica WHERE fkUsuario = ${idUsuario} and fkQuiz = (SELECT MAX(fkQuiz) FROM tbMetrica WHERE fkUsuario = ${idUsuario});
+    `;
+
+    return database.executar(instrucaoSql);
+
+    // SELECT SUM(acertos) AS 'Acertos', SUM(erros) AS 'Erros' FROM tbMetrica WHERE fkUsuario = ${idUsuario};
+
+}
+
+function buscarUltimosResultados(idUsuario, limite_linhas) {
+
+    var instrucaoSql = `SELECT acertos FROM tbMetrica WHERE fkUsuario = ${idUsuario} ORDER BY idMetrica DESC LIMIT ${limite_linhas}`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+
+
+function ultimosResultadosTempoReal(idUsuario) {
+
+    var instrucaoSql = `SELECT acertos FROM tbMetrica WHERE fkUsuario = ${idUsuario} ORDER BY idMetrica DESC LIMIT 1`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+
+function ranking() {
+
+    var instrucaoSql = `
+        SELECT tbUsuario.nome, erros, acertos FROM tbMetrica 
+	        join tbUsuario 
+		        on idUsuario = fkUsuario	
+			        ORDER BY acertos DESC;
     `;
 
     return database.executar(instrucaoSql);
 
 }
 
+
 module.exports = {
     autenticar,
     cadastrar,
     createQuiz,
     finishGame,
-    quizResultado
+    quizResultado,
+    buscarUltimosResultados,
+    ultimosResultadosTempoReal,
+    ranking
 };

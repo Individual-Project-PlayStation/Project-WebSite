@@ -119,3 +119,16 @@
 .incorrect {
     background-color: red;
 }
+
+#quiz .card-quiz .divCanvas{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#quiz .tituloResposta {
+    text-align: center;
+    color: #00205B;
+}

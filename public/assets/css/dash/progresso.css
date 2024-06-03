@@ -34,12 +34,26 @@
     border-radius: 10px;
     background-color: white;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 }
 
-#progresso .card-progresso div{
+#progresso .divGraficoProgresso {
     width: 100%;
-    height: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+#progresso .tituloResposta {
+    text-align: center;
+    color: #00205B;
+}
+
+#progresso .tituloResposta p {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: black;
+}

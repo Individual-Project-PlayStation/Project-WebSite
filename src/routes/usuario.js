@@ -41,6 +41,29 @@ router.post("/quizResultado", (req,res) => {
     usuarioController.quizResultado(req,res);
 });
 
+// MOSTRAR GRAFICO
+
+router.post("/mostrarGrafico", (req,res) => {
+    usuarioController.listar(req,res);
+});
+
+// ULTIMOS RESULTADOS
+
+router.get("/ultimosResultados/:idUsuario", function (req, res) {
+    usuarioController.buscarUltimosResultados(req, res);
+});
+
+// ULTIMOS RESULTADOS EM TEMPO REAL
+
+router.get("/ultimosResultadosTempoReal/:idUsuario", function (req, res) {
+    usuarioController.ultimosResultadosTempoReal(req, res);
+});
+
+// TODOS OS USUARIOS RANKEADOS
+
+router.get("/ranking", (req, res) => {
+    usuarioController.ranking(req, res)
+})
 
 // EXPORT
 

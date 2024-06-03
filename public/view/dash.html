@@ -155,9 +155,9 @@
 
                                 <table>
                                     <tr>
-                                        <td class="info-table-content">ID</td>
                                         <td class="info-table-content">Nome</td>
-                                        <td class="info-table-content">Pontuação</td>
+                                        <td class="info-table-content">Erros</td>
+                                        <td class="info-table-content">Acertos</td>
                                     </tr>
                                 </table>
 
@@ -190,8 +190,10 @@
 
                         <div class="card-progresso">
 
-                            <div>
-                                <canvas id="myChart"></canvas>
+                            <h2 class="tituloResposta">Suas Ultimas Tentativas <p>Recarregue a página para atualizar o gráfico</p></h2>
+
+                            <div class="divGraficoProgresso">
+                                <canvas id="myChartProgresso"></canvas>
                             </div>
 
                         </div>
@@ -214,25 +216,134 @@
 </html>
 
 <script>
-    const ctx = document.getElementById('myChart');
 
-    new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['7º', '6º', '5º', '4º', '3º', '2º', 'Atual'],
-            datasets: [{
-                label: 'Ultimas Pontuações',
-                data: [8, 9, 3, 5, 2, 3, 5, 10],
-                borderWidth: 1,
-                backgroundColor: 'rgba(51, 107, 176, 0.678)',
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
+
+    let proximaAtualizacao;
+    let idUsuario;
+
+    window.onload = function () {
+        idUsuario = sessionStorage.ID_USUARIO;
+        obterDadosGraficoProgresso(idUsuario);
+        validarSessao();
+        ranking();
+    };
+
+    function obterDadosGraficoProgresso(idUsuario) {
+        if (proximaAtualizacao != undefined) {
+            clearTimeout(proximaAtualizacao);
         }
-    });
+
+        fetch(`/usuario/ultimosResultados/${idUsuario}`, { cache: 'no-store' })
+            .then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        resposta.reverse();
+
+                        plotarGraficoProgresso(resposta, idUsuario);
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    function plotarGraficoProgresso(resposta, idUsuario) {
+        console.log('Iniciando plotagem do gráfico...');
+
+        let labels = [];
+        let dados = {
+            labels: labels,
+            datasets: [
+                {
+                    label: 'Acertos',
+                    data: [],
+                    fill: false,
+                    borderColor: 'rgb(75, 192, 192)',
+                    backgroundColor: 'rgba(51, 107, 176, 0.678)',
+                    tension: 0.1
+                }
+
+            ]
+        };
+
+        console.log('----------------------------------------------');
+        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":');
+        console.log(resposta);
+
+        const tentativas = ['Última', 'Penúltima', 'Antepenúltima', 'ultima 4º', 'ultima 5º', 'ultima 6º', 'ultima 7º'];
+
+        for (let i = 0; i < resposta.length; i++) {
+            let registro = resposta[i];
+            labels.unshift(tentativas[i]);
+            dados.datasets[0].data.push(registro.acertos);
+        }
+
+        console.log('----------------------------------------------');
+        console.log('O gráfico será plotado com os respectivos valores:');
+        console.log('Labels:');
+        console.log(labels);
+        console.log('Dados:');
+        console.log(dados.datasets);
+        console.log('----------------------------------------------');
+
+        const config = {
+            type: 'bar',
+            data: dados,
+        };
+
+        let myChart = new Chart(
+            document.getElementById(`myChartProgresso`),
+            config
+        );
+
+        // setTimeout(() => atualizarGrafico(idUsuario, dados, myChart), 2000);
+    }
+
+
+//     function atualizarGrafico(idUsuario, dados, myChart) {
+//     fetch(`/usuario/ultimosResultadosTempoReal/${idUsuario}`, { cache: 'no-store' })
+//         .then(function (response) {
+//             if (response.ok) {
+//                 response.json().then(function (novoRegistro) {
+//                     if (novoRegistro === null || novoRegistro === undefined) {
+//                         console.log("Nenhum dado encontrado. O gráfico não será atualizado.");
+//                         // Agendar a próxima atualização
+//                         proximaAtualizacao = setTimeout(() => atualizarGrafico(idUsuario, dados, myChart), 2000);
+//                         return;
+//                     }
+//                     console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+//                     console.log(`Dados atuais do gráfico:`);
+//                     console.log(dados);
+
+//                     // Verificar se há novos dados
+//                     if (novoRegistro !== dados.datasets[0].data[dados.datasets[0].data.length - 1]) {
+
+//                         // Adicionar o novo número de acertos aos dados
+//                         dados.datasets[0].data.push(novoRegistro);
+//                         // Atualizar o gráfico
+//                         myChart.update();
+//                     } else {
+//                         console.log("Não há novos dados. O gráfico não será atualizado.");
+//                     }
+
+//                     // Agendar a próxima atualização
+//                     proximaAtualizacao = setTimeout(() => atualizarGrafico(idUsuario, dados, myChart), 2000);
+//                 });
+//             } else {
+//                 console.error('Nenhum dado encontrado ou erro na API');
+//                 // Agendar a próxima atualização
+//                 proximaAtualizacao = setTimeout(() => atualizarGrafico(idUsuario, dados, myChart), 2000);
+//             }
+//         })
+//         .catch(function (error) {
+//             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+//             // Agendar a próxima atualização
+//             proximaAtualizacao = setTimeout(() => atualizarGrafico(idUsuario, dados, myChart), 2000);
+//         });
+// }
+
 </script>
