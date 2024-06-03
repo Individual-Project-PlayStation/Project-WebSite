@@ -1,0 +1,121 @@
+#quiz-container {
+    width: 100%;
+    height: 100%;
+}
+
+#quiz {
+    width: 100%;
+    height: 100%;
+}
+
+#quiz .titulo-quiz {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#quiz .titulo-quiz h1 {
+    color: white;
+}
+
+#quiz .conteudo {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#quiz .card-quiz {
+    width: 90%;
+    height: 80%;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: top;
+    gap: 100px;
+}
+
+#quiz .card-quiz h2 {
+    text-align: center;
+    color: #00205B;
+}
+
+#quiz .card-quiz h2 p {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: black;
+}
+
+#quiz .alternativas-container {
+    width: 100%;
+    height: 30%;
+}
+
+#quiz .alternativas {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+#quiz .answer {
+    width: 45%;
+    height: 40%;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(51, 107, 176);
+    color: white;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+#quiz .answer:hover {
+    background-color: rgb(34, 80, 138);
+    cursor: pointer;
+    transition: 0.3s;
+    transform: scale(1.1);
+}
+
+#quiz .div-botoes {
+    display: flex;
+    gap: 20px;
+
+}
+
+#quiz .card-quiz .btn-comecar, .btn-proxima-questao {
+    font-size: 1.2rem;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(51, 107, 176);
+    color: white;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+#quiz .card-quiz .btn-comecar:hover, .btn-proxima-questao:hover  {
+    background-color: rgb(34, 80, 138);
+    cursor: pointer;
+    transition: 0.3s;
+    transform: scale(1.1);
+}
+
+.button.hide {
+    display: none;
+}
+
+.correct {
+    background-color: green;
+}
+
+.incorrect {
+    background-color: red;
+}

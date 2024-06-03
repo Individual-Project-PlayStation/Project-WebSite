@@ -20,6 +20,28 @@ router.post("/autenticar", (req, res) => {
 });
 
 
+// INICIAR QUIZ
+
+router.post("/iniciarQuiz", (req, res) => {
+    usuarioController.iniciarQuiz(req,res);
+});
+
+
+// FINALIZAR QUIZ
+
+router.post("/finishGame", function (req, res) {
+    usuarioController.finishGame(req,res);
+});
+
+
+// RESULTADO DO QUIZ
+
+
+router.post("/quizResultado", (req,res) => {
+    usuarioController.quizResultado(req,res);
+});
+
+
 // EXPORT
 
 module.exports = router;

@@ -1,16 +1,238 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
+    <!-- METADATAS -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../assets/css/home/index.css">
+    <meta name="author" content="Kauan Gabriel">
 
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/dash/dash.css">
+    <link rel="stylesheet" href="../assets/css/dash/quiz.css">
+    <link rel="stylesheet" href="../assets/css/dash/ranking.css">
+    <link rel="stylesheet" href="../assets/css/dash/progresso.css">
 
+    <!-- JS -->
+    <script src="../assets/script/quiz.js" async></script>
+    <script src="../assets/script/session.js"></script>
+    <script src="../assets/js/dash/trocaConteudo.js"></script>
+    <!-- TITLE -->
+    <title>Project - Dash</title>
 </head>
-<body>
 
-    dash
-    
+<body onload="validarSessao()">
+
+    <main>
+
+        <!-- MENU -->
+
+        <div class="menu">
+
+
+            <!-- PEFIL -->
+
+            <div class="perfil">
+
+                <img src="../assets/img/home/user.png">
+                <h3 id="usuario"></h3>
+
+            </div>
+
+
+            <!-- LISTA DE SEÇÕES -->
+
+            <nav class="secoes">
+
+
+                <!-- DASHBOARD - NOTIFICAÇÕES - CONFIGURAÇÕES -->
+
+                <ul>
+                    <li id="sessao-quiz"><img class="icone" src="../assets/img/dash/quiz.png">Quiz</li>
+                    <li id="sessao-ranking"><img class="icone" src="../assets/img/dash/ranking.png">Rankig</li>
+                    <li id="sessao-progresso"><img class="icone" src="../assets/img/dash/progress.png">Seu Progresso
+                    </li>
+                </ul>
+
+
+                <!-- SAIR DA CONTA -->
+
+                <div class="sair">
+
+                    <img class="icone-sair" src="../assets/img/dash/logout.png">
+                    <p id="sair-da-conta"><a href="login.html">Sair da Conta</a></p>
+
+                </div>
+
+            </nav>
+
+        </div>
+
+
+        <!-- CONTAINER PRINCIPAL -->
+
+        <div class="container">
+
+
+            <!-- QUIZ CONTAINER -->
+
+            <div id="quiz-container">
+
+
+                <!-- QUIZ -->
+
+                <div id="quiz">
+
+
+                    <!-- TITULO DO QUIZ -->
+
+                    <div class="titulo-quiz">
+                        <h1>PlayQuiz</h1>
+                    </div>
+
+
+                    <!-- CONTEUDO DO QUIZ -->
+
+                    <div class="conteudo">
+
+
+                        <!-- CARD QUIZ -->
+
+                        <div class="card-quiz hide">
+
+                            <h2 class="pergunta">Bem vindo ao Quiz da PlayStation! <p>Perguntas baseada no Conteúdo da
+                                    home. Responda com Atenção!</p>
+                            </h2>
+
+
+
+                            <div class="alternativas-container">
+
+                                <div class="alternativas">
+                                    <!-- 
+                                    <button class="answer button">Alternativa 1</button>
+                                    <button class="answer button">Alternativa 2</button>
+                                    <button class="answer button">Alternativa 3</button>
+                                    <button class="answer button">Alternativa 4</button> -->
+
+                                </div>
+
+                            </div>
+
+                            <div class="div-botoes">
+                                <button class="btn-comecar button">Começar</button>
+                                <button class="btn-proxima-questao button hide">Proxima Questão</button>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RANKING -->
+
+            <div id="ranking-container" style="display: none;">
+
+                <!-- RANKING -->
+
+                <div id="ranking">
+
+                    <!-- TITULO DO RANKING -->
+
+                    <div class="titulo-ranking">
+                        <h1>RANKING</h1>
+                    </div>
+
+                    <div class="conteudo">
+
+                        <div class="card-ranking">
+
+                            <div class="info">
+
+                                <table>
+                                    <tr>
+                                        <td class="info-table-content">ID</td>
+                                        <td class="info-table-content">Nome</td>
+                                        <td class="info-table-content">Pontuação</td>
+                                    </tr>
+                                </table>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- SEU PROGRESSO -->
+
+            <div id="progresso-container" style="display: none;">
+
+                <!-- RANKING -->
+
+                <div id="progresso">
+
+                    <!-- TITULO DO RANKING -->
+
+                    <div class="titulo-progresso">
+                        <h1>SEU PROGRESSO</h1>
+                    </div>
+
+                    <div class="conteudo">
+
+                        <div class="card-progresso">
+
+                            <div>
+                                <canvas id="myChart"></canvas>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
 </body>
+
 </html>
+
+<script>
+    const ctx = document.getElementById('myChart');
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['7º', '6º', '5º', '4º', '3º', '2º', 'Atual'],
+            datasets: [{
+                label: 'Ultimas Pontuações',
+                data: [8, 9, 3, 5, 2, 3, 5, 10],
+                borderWidth: 1,
+                backgroundColor: 'rgba(51, 107, 176, 0.678)',
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>

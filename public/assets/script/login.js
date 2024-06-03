@@ -9,26 +9,28 @@ function logar() {
         return;
     }
 
+    const data = {
+        emailServer: emailVar,
+        senhaServer: senhaVar
+    }
+
     fetch("/usuario/autenticar", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-            emailServer: emailVar,
-            senhaServer: senhaVar
-        })
+        body: JSON.stringify(data),
+        headers: { "Content-type": "application/json; charset=UTF-8" }
     })
 
-        .then((response) => {
+        .then(response => {
 
             if (response.ok) {
 
-                response.json().then(json => {
+                response.json().then(data => {
 
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
+                    sessionStorage.ID_USUARIO = data.response[0].idUsuario;
+                    sessionStorage.EMAIL_USUARIO = data.response[0].email;
+                    sessionStorage.NOME_USUARIO = data.response[0].nome;
 
-                    console.log('redirecionando para alguma tela!');
+                    console.log('redirecionando para a dash!');
 
                     setTimeout(() => {
                         window.location = "../view/dash.html";

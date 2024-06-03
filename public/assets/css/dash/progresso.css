@@ -1,0 +1,45 @@
+#progresso-container {
+    width: 100%;
+    height: 100%;
+}
+
+#progresso {
+    width: 100%;
+    height: 100%;
+}
+
+#progresso .titulo-progresso {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#progresso .titulo-progresso h1 {
+    color: white;
+}
+
+#progresso .conteudo {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#progresso .card-progresso {
+    width: 90%;
+    height: 80%;
+    border-radius: 10px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#progresso .card-progresso div{
+    width: 100%;
+    height: 100%;
+}
+
