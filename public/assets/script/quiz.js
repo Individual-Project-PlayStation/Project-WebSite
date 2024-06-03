@@ -279,8 +279,8 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             question: "Qual foi o primeiro console portátil da Sony?",
             answer: [
-                { text: "PlayStation Portable (PSP)", correct: true },
                 { text: "PSP Go", correct: false },
+                { text: "PlayStation Portable (PSP)", correct: true },
                 { text: "PlayStation Vita", correct: false },
                 { text: "PlayStation 3", correct: false },
             ],
@@ -288,9 +288,9 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             question: "Quantas unidades o PlayStation 2 vendeu no mundo?",
             answer: [
-                { text: "155 milhões", correct: true },
                 { text: "100 milhões", correct: false },
                 { text: "200 milhões", correct: false },
+                { text: "155 milhões", correct: true },
                 { text: "120 milhões", correct: false },
             ],
         },
@@ -315,45 +315,45 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             question: "Qual serviço de jogos em nuvem foi lançado em 2014?",
             answer: [
-                { text: "PlayStation Now", correct: true },
                 { text: "PlayStation Plus", correct: false },
                 { text: "PlayStation Network", correct: false },
+                { text: "PlayStation Now", correct: true },
                 { text: "PlayStation Store", correct: false },
             ],
         },
         {
             question: "O que o controle DualSense do PS5 oferece?",
             answer: [
-                { text: "Feedback tátil imersivo e gatilhos dinâmicos", correct: true },
                 { text: "Touch pad e barra luminosa", correct: false },
-                { text: "Botões analógicos e sensor de movimento", correct: false },
+                { text: "Feedback tátil imersivo e gatilhos dinâmicos", correct: true },
                 { text: "Alto-falante embutido e microfone integrado", correct: false },
+                { text: "Botões analógicos e sensor de movimento", correct: false },
             ],
         },
         {
             question: "Qual foi o recurso de mídia adicionado ao PS2?",
             answer: [
-                { text: "Driver de DVD integrado", correct: true },
                 { text: "Blu-ray", correct: false },
                 { text: "CD-ROM", correct: false },
                 { text: "PlayStation VR", correct: false },
+                { text: "Driver de DVD integrado", correct: true },
             ],
         },
         {
             question: "Quantos jogos foram lançados para o PlayStation 2?",
             answer: [
-                { text: "Quase 4 mil", correct: true },
                 { text: "Quase 2 mil", correct: false },
                 { text: "Quase 3 mil", correct: false },
+                { text: "Quase 4 mil", correct: true },
                 { text: "Quase 5 mil", correct: false },
             ],
         },
         {
             question: "Qual a resolução máxima suportada pelo PlayStation 5?",
             answer: [
-                { text: "8K", correct: true },
                 { text: "4K", correct: false },
                 { text: "1080p", correct: false },
+                { text: "8K", correct: true },
                 { text: "720p", correct: false },
             ],
         },
