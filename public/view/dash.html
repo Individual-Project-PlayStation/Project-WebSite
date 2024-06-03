@@ -14,14 +14,14 @@
     <link rel="stylesheet" href="../assets/css/dash/progresso.css">
 
     <!-- JS -->
-    <script src="../assets/script/quiz.js" async></script>
+    
     <script src="../assets/script/session.js"></script>
     <script src="../assets/js/dash/trocaConteudo.js"></script>
     <!-- TITLE -->
     <title>Project - Dash</title>
 </head>
 
-<body onload="validarSessao()">
+<body onload="validarSessao(), ranking()">
 
     <main>
 
@@ -155,7 +155,9 @@
 
                                 <table>
                                     <tr>
+                                        <td class="info-table-content">Posição</td>
                                         <td class="info-table-content">Nome</td>
+                                        <td class="info-table-content">ID Quiz</td>
                                         <td class="info-table-content">Erros</td>
                                         <td class="info-table-content">Acertos</td>
                                     </tr>
@@ -208,7 +210,9 @@
 
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js">
+
+    </script><script src="../assets/script/quiz.js" async></script>
 
 
 </body>
@@ -225,7 +229,8 @@
         idUsuario = sessionStorage.ID_USUARIO;
         obterDadosGraficoProgresso(idUsuario);
         validarSessao();
-        ranking();
+        // ranking();
+        
     };
 
     function obterDadosGraficoProgresso(idUsuario) {

@@ -231,21 +231,11 @@ function ranking(req, res) {
 }
 
 
-function searchAllMusic(req, res) {
-
-    musicModel.searchAllMusic().then((musics) => {
-        return res.status(200).json(musics)
-    })
-
-}
-
-
 // EXPORT
 
 module.exports = {
     autenticar,
     cadastrar,
-    // iniciarQuiz,
     finishGame,
     quizResultado,
     buscarUltimosResultados,

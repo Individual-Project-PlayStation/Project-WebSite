@@ -234,34 +234,38 @@ document.addEventListener("DOMContentLoaded", () => {
     function ranking() {
 
         const cardContent = document.querySelector("table")
-    
+
         fetch("/usuario/ranking")
 
-        
-    
+
+
             .then(response => response.json())
-            
+
             .then(data => {
                 console.log("miguel aqui");
-    
+
+                var posicao = 1;
                 data.forEach(element => {
-    
                     const table = document.createElement('tr')
-    
+
                     table.innerHTML = `
+                    <td>${posicao++}</td>
                     <td>${element.nome}</td>
+                    <td>${element.fkQuiz}</td>
                     <td>${element.erros}</td>
                     <td>${element.acertos}</td>
                     `
                     cardContent.append(table)
-    
+
                 })
-    
+
             }).catch(error => console.error(error))
-    
+
     }
 
     ranking();
+
+
 
     var questions = [
         {

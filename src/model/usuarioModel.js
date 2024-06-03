@@ -87,7 +87,7 @@ function ultimosResultadosTempoReal(idUsuario) {
 function ranking() {
 
     var instrucaoSql = `
-        SELECT tbUsuario.nome, erros, acertos FROM tbMetrica 
+        SELECT tbUsuario.nome, fkQuiz, erros, acertos FROM tbMetrica 
 	        join tbUsuario 
 		        on idUsuario = fkUsuario	
 			        ORDER BY acertos DESC;
