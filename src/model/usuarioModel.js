@@ -92,7 +92,7 @@ function ranking() {
 		    ON idUsuario = fkUsuario
                 JOIN tbQuiz
                 ON idQuiz = fkQuiz
-			        ORDER BY acertos DESC;
+			        ORDER BY acertos DESC, Data DESC;
     `;
 
     return database.executar(instrucaoSql);
