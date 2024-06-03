@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+    
     var startButton = document.querySelector(".btn-comecar");
     var perguntaContainer = document.querySelector(".card-quiz");
     var respostaContainer = document.querySelector(".alternativas");
@@ -10,12 +11,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     var currentQuestion = 0;
     var totalCorrect = 0;
+    var id = sessionStorage.ID_USUARIO;
 
     function startJogo() {
         startButton.classList.add("hide");
         perguntaContainer.classList.remove("hide");
         displayProximaPergunta();
     }
+
 
     function displayProximaPergunta() {
         while (respostaContainer.firstChild) {
@@ -42,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
             newAnswer.addEventListener("click", selectAnswer);
         });
     }
+
 
     function selectAnswer(event) {
         var answerClicked = event.target;
@@ -116,9 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
         return false;
-    }
-
-    var id = sessionStorage.ID_USUARIO;
+    }  
 
 
     function obterDadosGrafico() {
@@ -171,8 +173,8 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     function plotarGrafico_1(dados) {
-        console.log("Dados recebidos no plotar: ", JSON.stringify(dados));
-        console.log('Iniciando plotagem do gráfico...');
+        // console.log("Dados recebidos no plotar: ", JSON.stringify(dados));
+        // console.log('Iniciando plotagem do gráfico...');
 
 
         let labels = [''];
@@ -184,30 +186,26 @@ document.addEventListener("DOMContentLoaded", () => {
             datasets: [{
                 label: 'Acertos',
                 data: [acertos],
-                // borderColor: '#B0CDDA',
                 backgroundColor: 'rgba(51, 107, 176, 0.678',
-                // borderWidth: 2
             },
             {
                 label: 'Erros',
                 data: [erros],
-                // borderColor: '#EE675C',
                 backgroundColor: '#EE675C',
-                // borderWidth: 2
             },]
         };
 
-        console.log('----------------------------------------------');
-        console.log('Estes dados foram recebidos pela função "obterDadosGrafico" e passados para "plotarGrafico":');
-        console.log(dados);
+        // console.log('----------------------------------------------');
+        // console.log('Estes dados foram recebidos pela função "obterDadosGrafico" e passados para "plotarGrafico":');
+        // console.log(dados);
 
-        console.log('----------------------------------------------');
-        console.log('O gráfico será plotado com os respectivos valores:');
-        console.log('Labels:');
-        console.log(labels);
-        console.log('Dados:');
-        console.log(acertos, erros);
-        console.log('----------------------------------------------');
+        // console.log('----------------------------------------------');
+        // console.log('O gráfico será plotado com os respectivos valores:');
+        // console.log('Labels:');
+        // console.log(labels);
+        // console.log('Dados:');
+        // console.log(acertos, erros);
+        // console.log('----------------------------------------------');
 
         const config = {
             type: 'bar',
@@ -231,6 +229,7 @@ document.addEventListener("DOMContentLoaded", () => {
         );
     }
 
+
     function ranking() {
 
         const cardContent = document.querySelector("table")
@@ -242,8 +241,7 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(response => response.json())
 
             .then(data => {
-                console.log("miguel aqui");
-
+                console.log('TABELA RANKING');
                 var posicao = 1;
                 data.forEach(element => {
                     const table = document.createElement('tr')
@@ -252,7 +250,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <td>${posicao++}</td>
                     <td>${element.nome}</td>
                     <td>${element.fkQuiz}</td>
-                    <td>${element.erros}</td>
+                    <td>${element.Data}</td>
                     <td>${element.acertos}</td>
                     `
                     cardContent.append(table)
@@ -262,6 +260,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }).catch(error => console.error(error))
 
     }
+
 
     ranking();
 

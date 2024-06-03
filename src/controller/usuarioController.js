@@ -107,44 +107,6 @@ function finishGame(req, res) {
     });
 }
 
-// function experienciaNovato() {
-//     fetch('http://localhost:3333/perguntas/contarNovato')
-
-
-//         .then(response => response.json())
-//         .then(data => {
-
-//             console.log(data[0].quantidade)
-//             const ctx = document.getElementById('myChart1');
-
-//             new Chart(ctx, {
-//                 type: 'bar',
-//                 data: {
-//                     labels: ['Novatos'],
-//                     datasets: [{
-//                         label: 'Usuários',
-//                         data: [data[0].quantidade, 20],
-//                         borderWidth: 1,
-//                         backgroundColor: 'rgba(148,0,211)',
-//                     }]
-//                 },
-//                 options: {
-//                     scales: {
-//                         y: {
-//                             beginAtZero: true
-//                         }
-//                     },
-//                     plugins: {
-//                         legend: {
-//                             display: false // Defina como false para ocultar a legenda
-//                         }
-//                     },
-//                 },
-
-//             });
-
-//         })
-// }
 
 // RESULTADO DO QUIZ
 
@@ -173,6 +135,8 @@ function quizResultado(req, res) {
 }
 
 
+// ULTIMOS 7 RESULTADOS
+
 function buscarUltimosResultados(req, res) {
 
     const limite_linhas = 7;
@@ -196,6 +160,8 @@ function buscarUltimosResultados(req, res) {
     });
 }
 
+
+// ULTIMOS RESULTADOS EM TEMPO REAL
 
 function ultimosResultadosTempoReal (req, res) {
 
@@ -221,6 +187,9 @@ function ultimosResultadosTempoReal (req, res) {
 
     });
 }
+
+
+// RANKING
 
 function ranking(req, res) {
     
